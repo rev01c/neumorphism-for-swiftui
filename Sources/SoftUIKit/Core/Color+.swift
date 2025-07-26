@@ -1,9 +1,8 @@
-//
-//  File.swift
-//  neumorphism-for-swiftui
-//
-//  Created by Shingo Sugiura on 2025/7/26.
-//
+// Project: neumorphism-for-swiftui
+// License: MIT
+// Deployment Target: iOS 18
+
+// Sources/SoftUIKit/Core/Color+.swift
 
 import SwiftUI
 
