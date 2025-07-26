@@ -19,7 +19,7 @@ public struct SoftButtonStyle: ButtonStyle {
     ///   - padding: The padding inside the button.
     ///   - intensity: The shadow intensity for the neumorphic effect.
     public init(
-        baseColor: Color = Color(.systemBackground),
+        baseColor: Color = .systemBackgroundColor,
         cornerRadius: CGFloat = 12,
         padding: CGFloat = 16,
         intensity: CGFloat = 6

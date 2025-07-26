@@ -19,7 +19,7 @@ public struct SoftCard<Content: View>: View {
     @GestureState private var isPressed: Bool = false
     
     public init(
-        baseColor: Color = Color(.systemBackground),
+        baseColor: Color = .systemBackgroundColor,
         cornerRadius: CGFloat = 12,
         intensity: CGFloat = 6,
         padding: CGFloat = 16,
@@ -76,8 +76,8 @@ public struct SoftCard<Content: View>: View {
 
 public extension SoftCard {
     /// Interactive Card Initializer
-    static func interactive(
-        baseColor: Color = Color(.systemBackground),
+    static func interactiveCard(
+        baseColor: Color = .systemBackgroundColor,
         cornerRadius: CGFloat = 12,
         intensity: CGFloat = 6,
         padding: CGFloat = 16,
@@ -96,8 +96,8 @@ public extension SoftCard {
     }
     
     /// Static Card Initializer
-    static func static(
-        baseColor: Color = Color(.systemBackground),
+    static func staticCard(
+        baseColor: Color = .systemBackgroundColor,
         cornerRadius: CGFloat = 12,
         intensity: CGFloat = 6,
         padding: CGFloat = 16,

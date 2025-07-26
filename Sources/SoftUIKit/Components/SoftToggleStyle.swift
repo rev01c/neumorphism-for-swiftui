@@ -20,7 +20,7 @@ public struct SoftToggleStyle: ToggleStyle {
     ///   - size: The size of the toggle track.
     ///   - intensity: The shadow intensity for both track and thumb.
     public init(
-        baseColor: Color = Color(.systemBackground),
+        baseColor: Color = .systemBackgroundColor,
         cornerRadius: CGFloat = 16,
         size: CGSize = CGSize(width: 60, height: 30),
         intensity: CGFloat = 6
@@ -70,8 +70,22 @@ public struct SoftToggleStyle: ToggleStyle {
             }
         }
         .buttonStyle(PlainButtonStyle())
-        .accessibilityRole(.switch)
-        .accessibilityValue(configuration.isOn ? "On" : "Off")
-        .accessibilityAddTraits(configuration.isOn ? .isSelected : [])
+        .modifier(AccessibilityModifier(isOn: configuration.isOn))
+    }
+}
+
+struct AccessibilityModifier: ViewModifier {
+    let isOn: Bool
+    
+    func body(content: Content) -> some View {
+#if os(iOS) || os(tvOS) || os(watchOS)
+        content
+            .accessibilityRole(.switch)
+            .accessibilityValue(isOn ? "On" : "Off")
+            .accessibilityAddTraits(isOn ? .isSelected : [])
+#else
+        content
+            .accessibilityValue(isOn ? "On" : "Off")
+#endif
     }
 }
