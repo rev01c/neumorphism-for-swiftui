@@ -29,16 +29,16 @@ Add the following to your `Package.swift`:
 import PackageDescription
 
 let package = Package(
-    name: "YourApp",
+    name: "YourApp", // ← Replace this with your app’s module name
     dependencies: [
         .package(
-            url: "https://github.com/yourname/neumorphism-for-swiftui.git",
+            url: "https://github.com/rev01c/neumorphism-for-swiftui.git",
             from: "0.1.0"
         ),
     ],
     targets: [
         .target(
-            name: "YourApp",
+            name: "YourApp", // ← And here as well
             dependencies: [
                 .product(name: "SoftUIKit", package: "neumorphism-for-swiftui")
             ]
