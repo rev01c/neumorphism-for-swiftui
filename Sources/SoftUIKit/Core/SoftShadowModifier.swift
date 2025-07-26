@@ -20,7 +20,7 @@ public struct SoftShadowModifier: ViewModifier {
     let cornerRadius: CGFloat
     
     public init(
-        baseColor: Color = Color(.systemBackground),
+        baseColor: Color = .systemBackgroundColor,
         depth: SoftDepth = .raised(6),
         cornerRadius: CGFloat = 12
     ) {
@@ -61,20 +61,11 @@ public struct SoftShadowModifier: ViewModifier {
             content
                 .background(
                     RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(baseColor)
-                        .softShadow(
-                            color: Color.white.opacity(0.7),
-                            radius: intensity,
-                            x: intensity / 2,
-                            y: intensity / 2,
-                            isInner: true
-                        )
-                        .softShadow(
-                            color: Color.black.opacity(0.2),
-                            radius: intensity,
-                            x: -intensity / 2,
-                            y: -intensity / 2,
-                            isInner: true
+                        .fill(baseColor.opacity(0.95))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: cornerRadius)
+                                .stroke(Color.black.opacity(0.1), lineWidth: 1)
+                                .blur(radius: intensity / 2)
                         )
                 )
         }
@@ -84,7 +75,7 @@ public struct SoftShadowModifier: ViewModifier {
 public extension View {
     /// Applies neumorphic shadow effect
     func softShadow(
-        baseColor: Color = Color(.systemBackground),
+        baseColor: Color = .systemBackgroundColor,
         depth: SoftDepth = .raised(6),
         cornerRadius: CGFloat = 12
     ) -> some View {

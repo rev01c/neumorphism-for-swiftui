@@ -21,7 +21,7 @@ public struct SoftTextFieldStyle: TextFieldStyle {
     ///   - padding: The padding inside the text field.
     ///   - intensity: The shadow intensity for the neumorphic effect.
     public init(
-        baseColor: Color = Color(.systemBackground),
+        baseColor: Color = .systemBackgroundColor,
         cornerRadius: CGFloat = 12,
         padding: CGFloat = 8,
         intensity: CGFloat = 6
