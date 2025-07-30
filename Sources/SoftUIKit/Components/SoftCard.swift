@@ -59,9 +59,9 @@ public struct SoftCard<Content: View>: View {
             cardContent
                 .contentShape(Rectangle())
                 .gesture(
-                    LongPressGesture(minimumDuration: 0)
-                        .updating($isPressed) { current, state, _ in
-                            state = current
+                    DragGesture(minimumDistance: 0)
+                        .updating($isPressed) { _, state, _ in
+                            state = true
                         }
                         .onEnded { _ in
                             onTap?()
